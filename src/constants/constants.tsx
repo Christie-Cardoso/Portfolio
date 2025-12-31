@@ -1,3 +1,4 @@
+import { ChefHat, Gamepad2, Dumbbell, Volleyball } from "lucide-react";
 import type { Project } from "../types/types";
 
 export const PROJECTS: Project[] = [
@@ -29,10 +30,11 @@ export const PROJECTS: Project[] = [
     github: "#",
   },
 ];
+
 export const PORTFOLIO_DATA = {
-  name: "Christie Cardoso Cavalcante",
-  role: "Desenvolvedor Full Stack",
-  bio: "Sou desenvolvedor Full Stack com 2 anos de experiência prática, com foco em React, Next.js e Node.js. Pós-graduado em Arquitetura de Software Distribuído, com atuação em automação de processos e desenvolvimento de sistemas escaláveis.",
+  name: "Christie Cardoso",
+  role: "Desenvolvedora Full Stack",
+  bio: "Atuo no desenvolvimento de sistemas web com foco em React, Next.js e Node.js. Tenho 2 anos de experiência prática e pós-graduação em Arquitetura de Software Distribuído.",
   email: "christiecardoso@hotmail.com",
   location: "Belo Horizonte, MG",
   linkedin: "https://www.linkedin.com/in/christie-cardoso",
@@ -47,3 +49,26 @@ export const NAV_LINKS = [
   { label: "Tecnologias", href: "#skills", id: "skills" },
   { label: "Experiência", href: "#experience", id: "experience" },
 ];
+
+export const HOBBIES = [
+  { name: "Gastronomia", icon: ChefHat },
+  { name: "Video Game", icon: Gamepad2 },
+  { name: "Academia", icon: Dumbbell },
+  { name: "Futebol", icon: Volleyball },
+];
+
+export const ABOUT_CONTENT = {
+  paragraphs: [
+    "Meu nome é <strong class='text-white'>Christie Cardoso</strong> e sou desenvolvedora <strong class='text-white'>Full Stack</strong>, com cerca de 2 anos de experiência. Trabalho principalmente com sistemas web, tanto no front quanto no back, sempre tentando manter o código simples e bem organizado.",
+    "Concluí minha pós-graduação em <strong class='text-emerald-400'>Arquitetura de Software Distribuído pela PUC Minas</strong> (2025). Hoje trabalho na MyPetOne, mexendo em sistemas internos, automação de processos e integrações com ERPs e marketplaces.",
+    "No front uso bastante React e Next.js. No back, Node.js e PostgreSQL. Costumo usar Docker e Prisma no dia a dia pra manter padrão e facilitar manutenção.",
+  ],
+  education: [
+    { school: "PUC Minas", degree: "Pós-Graduação 2025", color: "emerald" },
+    {
+      school: "Rocketseat",
+      degree: "Certificação IA & Frontend",
+      color: "blue",
+    },
+  ],
+};
