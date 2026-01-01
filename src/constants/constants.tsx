@@ -210,8 +210,8 @@ export const EXPERIENCES: Experience[] = [
     role: "Estagiário de Desenvolvimento Web",
     period: "Ago 2023 - Fev 2024",
     description:
-"Desenvolvi soluções personalizadas para sites em WordPress, utilizando PHP e JavaScript. Meu foco estava na otimização de performance (Web Vitals) e na melhoria da UI/UX para oferecer uma experiência mais fluida ao usuário. Também fiquei responsável pela gestão dos ambientes de hospedagem via cPanel, incluindo a configuração de temas, plugins e manutenção preventiva para garantir o bom funcionamento e alta disponibilidade dos sites.",
-        current: false,
+      "Desenvolvi soluções personalizadas para sites em WordPress, utilizando PHP e JavaScript. Meu foco estava na otimização de performance (Web Vitals) e na melhoria da UI/UX para oferecer uma experiência mais fluida ao usuário. Também fiquei responsável pela gestão dos ambientes de hospedagem via cPanel, incluindo a configuração de temas, plugins e manutenção preventiva para garantir o bom funcionamento e alta disponibilidade dos sites.",
+    current: false,
   },
   {
     id: "exp3",
@@ -219,7 +219,26 @@ export const EXPERIENCES: Experience[] = [
     role: "Estagiário de Infraestrutura",
     period: "Jun 2023 - Ago 2023",
     description:
-"Prestei suporte técnico para usuários finais e auxiliei na administração de infraestrutura de redes. Implementei rotinas de backup e recuperação de dados para garantir a integridade da informação e a continuidade dos processos. Também fiquei envolvido na gestão de chamados técnicos e na configuração de máquinas em ambientes híbridos (Windows/Linux), sempre buscando resolver problemas de forma eficiente.",
-            current: false,
+      "Prestei suporte técnico para usuários finais e auxiliei na administração de infraestrutura de redes. Implementei rotinas de backup e recuperação de dados para garantir a integridade da informação e a continuidade dos processos. Também fiquei envolvido na gestão de chamados técnicos e na configuração de máquinas em ambientes híbridos (Windows/Linux), sempre buscando resolver problemas de forma eficiente.",
+    current: false,
   },
 ];
+
+export const CONTACT_CONTENT = {
+  title: "Contato",
+  description:
+    "Estou disponível para projetos freelance que me permitam aplicar e expandir minhas habilidades técnicas, sempre buscando novos desafios para crescer como desenvolvedor.",
+  socialsTitle: "Me encontre em",
+  directContactTitle: "Contato Direto",
+  form: {
+    nameLabel: "Seu Nome",
+    namePlaceholder: "Ex: João Silva",
+    emailLabel: "Seu E-mail",
+    emailPlaceholder: "email@exemplo.com",
+    subjectLabel: "Assunto",
+    subjectPlaceholder: "Sobre o que vamos conversar?",
+    messageLabel: "Sua Mensagem",
+    messagePlaceholder: "Conte um pouco sobre sua ideia ou projeto...",
+    buttonText: "Enviar Mensagem",
+  },
+};
