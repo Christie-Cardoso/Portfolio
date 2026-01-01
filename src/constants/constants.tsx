@@ -1,5 +1,5 @@
 import { ChefHat, Gamepad2, Dumbbell, Volleyball } from "lucide-react";
-import type { Project, Skill } from "../types/types";
+import type { Project, Skill, Experience } from "../types/types";
 
 export const PROJECTS: Project[] = [
   {
@@ -191,5 +191,35 @@ export const SKILLS: Skill[] = [
     name: "Linux",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg",
     category: "Tools & DevOps",
+  },
+];
+
+export const EXPERIENCES: Experience[] = [
+  {
+    id: "exp1",
+    company: "MyPetOne",
+    role: "Desenvolvedor de Software Júnior",
+    period: "Mai 2025 - Atual",
+    description:
+      "Participo no desenvolvimento e aprimoramento de sistemas internos escaláveis, com foco na automação de fluxos importantes e integração via APIs REST com grandes Marketplaces. No front-end, trabalho com React e Next.js usando Tailwind CSS para criar interfaces ágeis e de boa performance. Também colaboro na padronização de ambientes com Docker e na arquitetura de dados com PostgreSQL/MongoDB utilizando Prisma ORM, sempre buscando melhorar a eficiência e minimizar erros operacionais.",
+    current: true,
+  },
+  {
+    id: "exp2",
+    company: "Domyni",
+    role: "Estagiário de Desenvolvimento Web",
+    period: "Ago 2023 - Fev 2024",
+    description:
+"Desenvolvi soluções personalizadas para sites em WordPress, utilizando PHP e JavaScript. Meu foco estava na otimização de performance (Web Vitals) e na melhoria da UI/UX para oferecer uma experiência mais fluida ao usuário. Também fiquei responsável pela gestão dos ambientes de hospedagem via cPanel, incluindo a configuração de temas, plugins e manutenção preventiva para garantir o bom funcionamento e alta disponibilidade dos sites.",
+        current: false,
+  },
+  {
+    id: "exp3",
+    company: "Rheoli Brasil",
+    role: "Estagiário de Infraestrutura",
+    period: "Jun 2023 - Ago 2023",
+    description:
+"Prestei suporte técnico para usuários finais e auxiliei na administração de infraestrutura de redes. Implementei rotinas de backup e recuperação de dados para garantir a integridade da informação e a continuidade dos processos. Também fiquei envolvido na gestão de chamados técnicos e na configuração de máquinas em ambientes híbridos (Windows/Linux), sempre buscando resolver problemas de forma eficiente.",
+            current: false,
   },
 ];

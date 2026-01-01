@@ -13,3 +13,12 @@ export interface Skill {
   icon: string;
   category: "Frontend" | "Backend & Database" | "Tools & DevOps";
 }
+
+export interface Experience {
+  id: string;
+  company: string;
+  role: string;
+  period: string;
+  description: string;
+  current: boolean;
+}

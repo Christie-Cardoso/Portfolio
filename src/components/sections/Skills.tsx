@@ -10,7 +10,6 @@ const Skills: React.FC = () => {
 
   return (
     <section id="skills" className="py-24 relative overflow-hidden">
-      {/* Background patterns */}
       <div className="absolute top-0 right-0 w-125 h-125 bg-blue-500/5 rounded-full blur-[120px] -mr-64 -mt-64"></div>
       <div className="absolute bottom-0 left-0 w-125 h-125 bg-emerald-500/5 rounded-full blur-[120px] -ml-64 -mb-64"></div>
 
