@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-// import emailjs from "@emailjs/browser";
+import emailjs from "@emailjs/browser";
 import { PORTFOLIO_DATA, CONTACT_CONTENT } from "../../constants/constants";
 
 // Validation Schema
@@ -30,7 +30,7 @@ const Contact: React.FC = () => {
   const {
     register,
     handleSubmit,
-    // reset,
+    reset,
     formState: { errors },
   } = useForm<ContactFormData>({
     resolver: zodResolver(contactSchema),
@@ -40,39 +40,35 @@ const Contact: React.FC = () => {
     setIsSubmitting(true);
     setSubmitStatus("idle");
 
-    // try {
-    //   // Replace these IDs with your actual EmailJS credentials
-    //   const SERVICE_ID = "service_id";
-    //   const TEMPLATE_ID = "template_id";
-    //   const PUBLIC_KEY = "public_key";
+    try {
+      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
-    //   // Example payload match EmailJS template params
-    //   // You can remove this 'await' and 'emailjs' call if you don't have creds yet and just want to test UI
-    //   /*
-    //   await emailjs.send(
-    //     SERVICE_ID,
-    //     TEMPLATE_ID,
-    //     {
-    //       from_name: data.name,
-    //       from_email: data.email,
-    //       subject: data.subject,
-    //       message: data.message,
-    //     },
-    //     PUBLIC_KEY
-    //   );
-    //   */
+      if (!serviceId || !templateId || !publicKey) {
+        throw new Error("EmailJS credentials are not configured in .env file.");
+      }
 
-    //   // Simulating network request for now
-    //   await new Promise((resolve) => setTimeout(resolve, 2000));
+      await emailjs.send(
+        serviceId,
+        templateId,
+        {
+          from_name: data.name,
+          from_email: data.email,
+          subject: data.subject,
+          message: data.message,
+        },
+        publicKey
+      );
 
-    //   setSubmitStatus("success");
-    //   reset();
-    // } catch (error) {
-    //   console.error("Failed to send email:", error);
-    //   setSubmitStatus("error");
-    // } finally {
-    //   setIsSubmitting(false);
-    // }
+      setSubmitStatus("success");
+      reset();
+    } catch (error) {
+      console.error("Failed to send email:", error);
+      setSubmitStatus("error");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
