@@ -7,3 +7,9 @@ export interface Project {
   link: string;
   github: string;
 }
+
+export interface Skill {
+  name: string;
+  icon: string;
+  category: "Frontend" | "Backend & Database" | "Tools & DevOps";
+}

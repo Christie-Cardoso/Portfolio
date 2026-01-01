@@ -6,6 +6,15 @@ const About: React.FC = () => {
     <div id="about" className="py-32 container mx-auto px-6">
       <div className="grid lg:grid-cols-12 gap-16 items-start">
         <div className="lg:col-span-7 space-y-8">
+          <div className="space-y-4">
+            <h2 className="text-emerald-500 font-mono text-sm tracking-[0.3em] uppercase font-bold">
+              {ABOUT_CONTENT.badge}
+            </h2>
+            <h3 className="text-4xl md:text-5xl font-extrabold text-white leading-tight">
+              {ABOUT_CONTENT.title}{" "}
+              <span className="gradient-text">{ABOUT_CONTENT.location}</span>
+            </h3>
+          </div>
           <div className="text-slate-400 space-y-6 text-lg leading-relaxed">
             {ABOUT_CONTENT.paragraphs.map((p, idx) => (
               <p key={idx} dangerouslySetInnerHTML={{ __html: p }} />
