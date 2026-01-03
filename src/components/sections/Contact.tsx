@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import emailjs from "@emailjs/browser";
 import { PORTFOLIO_DATA, CONTACT_CONTENT } from "../../constants/constants";
 
 // Validation Schema
@@ -41,25 +40,25 @@ const Contact: React.FC = () => {
     setSubmitStatus("idle");
 
     try {
-      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
-      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
-      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+      const apiUrl = import.meta.env.VITE_EMAIL_API_URL || "http://localhost:3000/api/send-email";
 
-      if (!serviceId || !templateId || !publicKey) {
-        throw new Error("EmailJS credentials are not configured in .env file.");
-      }
-
-      await emailjs.send(
-        serviceId,
-        templateId,
-        {
-          from_name: data.name,
-          from_email: data.email,
+      const response = await fetch(apiUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: data.name,
+          email: data.email,
           subject: data.subject,
           message: data.message,
-        },
-        publicKey
-      );
+        }),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || "Failed to send email");
+      }
 
       setSubmitStatus("success");
       reset();
