@@ -40,7 +40,7 @@ const Contact: React.FC = () => {
     setSubmitStatus("idle");
 
     try {
-      const apiUrl = import.meta.env.VITE_EMAIL_API_URL || "http://localhost:3000/api/send-email";
+      const apiUrl = import.meta.env.VITE_EMAIL_API_URL || "https://portfolio-email-api-ashen.vercel.app/api/send-email";
 
       const response = await fetch(apiUrl, {
         method: "POST",
