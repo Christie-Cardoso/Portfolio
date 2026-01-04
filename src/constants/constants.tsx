@@ -4,30 +4,22 @@ import type { Project, Skill, Experience } from "../types/types";
 export const PROJECTS: Project[] = [
   {
     id: "1",
-    title: "Teste 1",
-    description: "Teste 1",
-    image: "",
-    tags: ["Next.js", "API REST", "Node.js", "Docker"],
-    link: "#",
-    github: "#",
-  },
-  {
-    id: "2",
-    title: "Teste 1",
-    description: "Teste 2",
-    image: "",
-    tags: ["React", "WordPress", "PHP", "Lighthouse"],
-    link: "#",
-    github: "#",
-  },
-  {
-    id: "3",
-    title: "Teste 1",
-    description: "Teste 1",
-    image: "",
-    tags: ["Docker", "GitHub Actions", "AWS", "Linux"],
-    link: "#",
-    github: "#",
+    title: "Portfolio Pessoal",
+    description:
+      "Portfólio pessoal desenvolvido com React, TypeScript e Tailwind CSS, apresentando projetos, habilidades e experiências profissionais. Conta com backend em Node.js e TypeScript para gerenciar o envio de emails do formulário de contato através de API REST serverless deployada na Vercel.",
+    image:
+      "https://res.cloudinary.com/dmvm1mlgv/image/upload/v1767549351/portfolio_bj5eou.png",
+    tags: [
+      "React",
+      "TypeScript",
+      "Tailwind",
+      "Node.js",
+      "API REST",
+      "Vercel",
+      "GitHub Actions",
+    ],
+    link: "https://christiecardoso.software",
+    github: "https://github.com/Christie-Cardoso/Portfolio",
   },
 ];
 
@@ -70,7 +62,7 @@ export const ABOUT_CONTENT = {
     { school: "PUC Minas", degree: "Pós-Graduação 2025", color: "emerald" },
     {
       school: "Rocketseat",
-      degree: "Certificação IA & Frontend",
+      degree: "Discover Rocketseat 2023",
       color: "blue",
     },
   ],

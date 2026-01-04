@@ -82,7 +82,7 @@ const ProjectsPage: React.FC = () => {
               <button
                 key={cat}
                 onClick={() => setFilter(cat)}
-                className={`px-6 py-2.5 rounded-full text-sm font-bold transition-all whitespace-nowrap ${
+                className={`px-6 py-2.5 rounded-full text-sm font-bold transition-all whitespace-nowrap cursor-pointer ${
                   filter === cat
                     ? "bg-emerald-500 text-white shadow-lg shadow-emerald-500/20"
                     : "bg-slate-800 text-slate-400 border border-white/5 hover:bg-slate-700"

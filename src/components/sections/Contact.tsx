@@ -241,7 +241,7 @@ const Contact: React.FC = () => {
                       <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
                     ) : (
                       <>
-                        <span className="relative z-10">
+                        <span className="relative z-10 cursor-pointer">
                           {CONTACT_CONTENT.form.buttonText}
                         </span>
                         <svg

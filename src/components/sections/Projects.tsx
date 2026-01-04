@@ -46,7 +46,7 @@ const Projects: React.FC<ProjectsProps> = ({ featuredOnly, onViewAll }) => {
           {displayProjects.map((project) => (
             <div
               key={project.id}
-              className="cursor-pointer group relative flex flex-col h-full glass rounded-3xl overflow-hidden hover:border-emerald-500/30 transition-all"
+              className="group relative flex flex-col h-full glass rounded-3xl overflow-hidden hover:border-emerald-500/30 transition-all"
             >
               <div className="relative overflow-hidden aspect-video">
                 <img
