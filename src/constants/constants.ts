@@ -1,13 +1,18 @@
-import { ChefHat, Gamepad2, Dumbbell, Volleyball } from "lucide-react";
-import type { Project, Skill, Experience } from "../types/types";
+import {
+  ChefHat,
+  Gamepad2,
+  Dumbbell,
+  Volleyball,
+} from "lucide-react";
+import type { Skill, Experience } from "../types/types";
 
-export const PROJECTS: Project[] = [
+export const PROJECTS = [
   {
-    id: "1",
-    title: "Portfolio Pessoal",
-    description:
-      "Portfólio pessoal desenvolvido com React, TypeScript e Tailwind CSS, apresentando projetos, habilidades e experiências profissionais. Conta com backend em Node.js e TypeScript para gerenciar o envio de emails do formulário de contato através de API REST serverless deployada na Vercel.",
-    image:
+    id: "0",
+    title:  "Portfolio Pessoal",
+    description: 
+      "Portfólio pessoal desenvolvido com React, TypeScript e Tailwind CSS, apresentando projetos, habilidades e experiências profissionais.  Conta com backend em Node.js e TypeScript para gerenciar o envio de emails do formulário de contato através de API REST serverless deployada na Vercel.",
+    image: 
       "https://res.cloudinary.com/dmvm1mlgv/image/upload/v1767549351/portfolio_bj5eou.png",
     tags: [
       "React",
@@ -25,7 +30,7 @@ export const PROJECTS: Project[] = [
 
 export const PORTFOLIO_DATA = {
   name: "Christie Cardoso",
-  role: "Desenvolvedora Full Stack",
+  role:  "Desenvolvedora Full Stack",
   bio: "Atuo no desenvolvimento de sistemas web com foco em React, Next.js e Node.js. Tenho 2 anos de experiência prática e pós-graduação em Arquitetura de Software Distribuído.",
   email: "christiecardoso@hotmail.com",
   location: "Belo Horizonte, MG",
@@ -38,8 +43,8 @@ export const PORTFOLIO_DATA = {
 
 export const NAV_LINKS = [
   { label: "Sobre", href: "#about", id: "about" },
-  { label: "Tecnologias", href: "#skills", id: "skills" },
-  { label: "Experiência", href: "#experience", id: "experience" },
+  { label: "Tecnologias", href: "#skills", id:  "skills" },
+  { label: "Experiência", href:  "#experience", id: "experience" },
 ];
 
 export const HOBBIES = [
@@ -59,7 +64,7 @@ export const ABOUT_CONTENT = {
     "No front uso bastante React e Next.js. No back, Node.js e PostgreSQL. Costumo usar Docker e Prisma no dia a dia pra manter padrão e facilitar manutenção.",
   ],
   education: [
-    { school: "PUC Minas", degree: "Pós-Graduação 2025", color: "emerald" },
+    { school:  "PUC Minas", degree: "Pós-Graduação 2025", color:  "emerald" },
     {
       school: "Rocketseat",
       degree: "Discover Rocketseat 2023",
@@ -75,40 +80,34 @@ export const SKILLS: Skill[] = [
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
     category: "Frontend",
   },
-
   {
     name: "TypeScript",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original. svg",
     category: "Frontend",
   },
-
   {
     name: "React",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
     category: "Frontend",
   },
-
   {
     name: "Next.js",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
     category: "Frontend",
   },
-
   {
     name: "Tailwind",
-    icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/tailwindcss/tailwindcss-original.svg",
+    icon:  "https://raw.githubusercontent.com/devicons/devicon/master/icons/tailwindcss/tailwindcss-original.svg",
     category: "Frontend",
   },
-
   {
     name: "Sass",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sass/sass-original.svg",
     category: "Frontend",
   },
-
   {
     name: "WordPress",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/wordpress/wordpress-plain.svg",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/wordpress/wordpress-plain. svg",
     category: "Frontend",
   },
 
@@ -118,19 +117,16 @@ export const SKILLS: Skill[] = [
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
     category: "Backend & Database",
   },
-
   {
     name: "Express",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg",
     category: "Backend & Database",
   },
-
   {
     name: "PHP",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg",
     category: "Backend & Database",
   },
-
   {
     name: "Prisma",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/prisma/prisma-original.svg",
@@ -141,7 +137,6 @@ export const SKILLS: Skill[] = [
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
     category: "Backend & Database",
   },
-
   {
     name: "MongoDB",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
@@ -151,17 +146,17 @@ export const SKILLS: Skill[] = [
   // Tools & DevOps
   {
     name: "Docker",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
+    icon:  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
     category: "Tools & DevOps",
   },
   {
     name: "AWS",
-    icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/amazonwebservices/amazonwebservices-original-wordmark.svg",
+    icon:  "https://raw.githubusercontent.com/devicons/devicon/master/icons/amazonwebservices/amazonwebservices-original-wordmark.svg",
     category: "Tools & DevOps",
   },
   {
     name: "Git",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
+    icon:  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
     category: "Tools & DevOps",
   },
   {
@@ -210,7 +205,7 @@ export const EXPERIENCES: Experience[] = [
     company: "Rheoli Brasil",
     role: "Estagiário de Infraestrutura",
     period: "Jun 2023 - Ago 2023",
-    description:
+    description: 
       "Prestei suporte técnico para usuários finais e auxiliei na administração de infraestrutura de redes. Implementei rotinas de backup e recuperação de dados para garantir a integridade da informação e a continuidade dos processos. Também fiquei envolvido na gestão de chamados técnicos e na configuração de máquinas em ambientes híbridos (Windows/Linux), sempre buscando resolver problemas de forma eficiente.",
     current: false,
   },
@@ -218,18 +213,18 @@ export const EXPERIENCES: Experience[] = [
 
 export const CONTACT_CONTENT = {
   title: "Contato",
-  description:
+  description: 
     "Estou disponível para projetos freelance que me permitam aplicar e expandir minhas habilidades técnicas, sempre buscando novos desafios para crescer como desenvolvedor.",
   socialsTitle: "Me encontre em",
   directContactTitle: "Contato Direto",
   form: {
     nameLabel: "Seu Nome",
-    namePlaceholder: "Ex: João Silva",
-    emailLabel: "Seu E-mail",
+    namePlaceholder: "Ex:  João Silva",
+    emailLabel:  "Seu E-mail",
     emailPlaceholder: "email@exemplo.com",
     subjectLabel: "Assunto",
-    subjectPlaceholder: "Sobre o que vamos conversar?",
-    messageLabel: "Sua Mensagem",
+    subjectPlaceholder:  "Sobre o que vamos conversar?",
+    messageLabel:  "Sua Mensagem",
     messagePlaceholder: "Conte um pouco sobre sua ideia ou projeto...",
     buttonText: "Enviar Mensagem",
   },
