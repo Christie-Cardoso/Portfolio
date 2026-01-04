@@ -4,6 +4,9 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { PORTFOLIO_DATA, CONTACT_CONTENT } from "../../constants/constants";
 import { EmailService } from "../../api/emailService";
+import Input from "../ui/Input";
+import Button from "../ui/Button";
+import { Send } from "lucide-react";
 
 // Validation Schema
 const contactSchema = z.object({
@@ -134,115 +137,50 @@ const Contact: React.FC = () => {
               <div className="glass p-8 md:p-10 rounded-4xl border-white/5 bg-white/2">
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
                   <div className="grid md:grid-cols-2 gap-6">
-                    <div className="space-y-2">
-                      <label className="text-sm font-medium text-slate-300 ml-1">
-                        {CONTACT_CONTENT.form.nameLabel}
-                      </label>
-                      <input
-                        {...register("name")}
-                        type="text"
-                        className={`w-full bg-slate-900/50 border rounded-2xl px-5 py-4 text-white placeholder:text-slate-600 focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500/50 outline-none transition-all ${
-                          errors.name ? "border-red-500/50" : "border-white/10"
-                        }`}
-                        placeholder={CONTACT_CONTENT.form.namePlaceholder}
-                        disabled={isSubmitting}
-                      />
-                      {errors.name && (
-                        <p className="text-red-400 text-xs ml-1">
-                          {errors.name.message}
-                        </p>
-                      )}
-                    </div>
-                    <div className="space-y-2">
-                      <label className="text-sm font-medium text-slate-300 ml-1">
-                        {CONTACT_CONTENT.form.emailLabel}
-                      </label>
-                      <input
-                        {...register("email")}
-                        type="email"
-                        className={`w-full bg-slate-900/50 border rounded-2xl px-5 py-4 text-white placeholder:text-slate-600 focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500/50 outline-none transition-all ${
-                          errors.email ? "border-red-500/50" : "border-white/10"
-                        }`}
-                        placeholder={CONTACT_CONTENT.form.emailPlaceholder}
-                        disabled={isSubmitting}
-                      />
-                      {errors.email && (
-                        <p className="text-red-400 text-xs ml-1">
-                          {errors.email.message}
-                        </p>
-                      )}
-                    </div>
-                  </div>
-
-                  <div className="space-y-2">
-                    <label className="text-sm font-medium text-slate-300 ml-1">
-                      {CONTACT_CONTENT.form.subjectLabel}
-                    </label>
-                    <input
-                      {...register("subject")}
-                      type="text"
-                      className={`w-full bg-slate-900/50 border rounded-2xl px-5 py-4 text-white placeholder:text-slate-600 focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500/50 outline-none transition-all ${
-                        errors.subject ? "border-red-500/50" : "border-white/10"
-                      }`}
-                      placeholder={CONTACT_CONTENT.form.subjectPlaceholder}
+                    <Input
+                      label={CONTACT_CONTENT.form.nameLabel}
+                      placeholder={CONTACT_CONTENT.form.namePlaceholder}
+                      error={errors.name}
+                      {...register("name")}
                       disabled={isSubmitting}
                     />
-                    {errors.subject && (
-                      <p className="text-red-400 text-xs ml-1">
-                        {errors.subject.message}
-                      </p>
-                    )}
-                  </div>
-
-                  <div className="space-y-2">
-                    <label className="text-sm font-medium text-slate-300 ml-1">
-                      {CONTACT_CONTENT.form.messageLabel}
-                    </label>
-                    <textarea
-                      {...register("message")}
-                      rows={5}
-                      className={`w-full bg-slate-900/50 border rounded-2xl px-5 py-4 text-white placeholder:text-slate-600 focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500/50 outline-none transition-all resize-none ${
-                        errors.message ? "border-red-500/50" : "border-white/10"
-                      }`}
-                      placeholder={CONTACT_CONTENT.form.messagePlaceholder}
+                    <Input
+                      label={CONTACT_CONTENT.form.emailLabel}
+                      type="email"
+                      placeholder={CONTACT_CONTENT.form.emailPlaceholder}
+                      error={errors.email}
+                      {...register("email")}
                       disabled={isSubmitting}
-                    ></textarea>
-                    {errors.message && (
-                      <p className="text-red-400 text-xs ml-1">
-                        {errors.message.message}
-                      </p>
-                    )}
+                    />
                   </div>
 
-                  <button
-                    type="submit"
+                  <Input
+                    label={CONTACT_CONTENT.form.subjectLabel}
+                    placeholder={CONTACT_CONTENT.form.subjectPlaceholder}
+                    error={errors.subject}
+                    {...register("subject")}
                     disabled={isSubmitting}
-                    className="group relative w-full py-5 bg-emerald-500 hover:bg-emerald-600 disabled:bg-emerald-500/50 disabled:cursor-not-allowed text-white font-bold rounded-2xl transition-all duration-300 overflow-hidden shadow-lg shadow-emerald-500/20 flex items-center justify-center space-x-2"
+                  />
+
+                  <Input
+                    label={CONTACT_CONTENT.form.messageLabel}
+                    placeholder={CONTACT_CONTENT.form.messagePlaceholder}
+                    multiline
+                    rows={5}
+                    error={errors.message}
+                    {...register("message")}
+                    disabled={isSubmitting}
+                  />
+
+                  <Button
+                    type="submit"
+                    fullWidth
+                    loading={isSubmitting}
+                    icon={Send}
+                    iconPosition="right"
                   >
-                    {isSubmitting ? (
-                      <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
-                    ) : (
-                      <>
-                        <span className="relative z-10 cursor-pointer">
-                          {CONTACT_CONTENT.form.buttonText}
-                        </span>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          className="h-5 w-5 relative z-10 group-hover:translate-x-1 transition-transform"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M14 5l7 7m0 0l-7 7m7-7H3"
-                          />
-                        </svg>
-                      </>
-                    )}
-                  </button>
+                    {CONTACT_CONTENT.form.buttonText}
+                  </Button>
 
                   {/* Feedback Messages */}
                   {submitStatus === "success" && (

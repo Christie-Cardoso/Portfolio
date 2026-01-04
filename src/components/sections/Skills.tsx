@@ -1,5 +1,6 @@
 import React from "react";
 import { SKILLS } from "../../constants/constants";
+import Card from "../ui/Card";
 
 const Skills: React.FC = () => {
   const categories: ("Frontend" | "Backend & Database" | "Tools & DevOps")[] = [
@@ -36,11 +37,14 @@ const Skills: React.FC = () => {
 
               <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-7 gap-6">
                 {SKILLS.filter((s) => s.category === cat).map((skill) => (
-                  <div
+                  <Card
                     key={skill.name}
-                    className="group relative flex flex-col items-center justify-center p-6 rounded-4xl glass border-white/5 hover:border-emerald-500/40 transition-all duration-500 hover:-translate-y-2 bg-white/1"
+                    variant="hover-lift"
+                    padding="md"
+                    rounded="4xl"
+                    className="flex flex-col items-center justify-center"
                   >
-                    <div className="w-12 h-12 md:w-14 md:h-14 mb-4 flex items-center justify-center relative">
+                    <div className="w-12 h-12 md:w-14 md:h-14 mb-4 flex items-center justify-center relative group">
                       {/* Glow background on hover */}
                       <div className="absolute inset-0 bg-white/10 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
@@ -54,7 +58,7 @@ const Skills: React.FC = () => {
                     <span className="text-slate-500 font-medium text-xs group-hover:text-emerald-400 transition-colors text-center uppercase tracking-wider">
                       {skill.name}
                     </span>
-                  </div>
+                  </Card>
                 ))}
               </div>
             </div>

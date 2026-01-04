@@ -1,5 +1,6 @@
 import React from "react";
 import { EXPERIENCES } from "../../constants/constants";
+import Card from "../ui/Card";
 
 const ExperienceTimeline: React.FC = () => {
   return (
@@ -26,7 +27,11 @@ const ExperienceTimeline: React.FC = () => {
                   } transition-all group-hover:scale-150`}
                 ></div>
 
-                <div className="glass p-6 rounded-2xl group-hover:bg-white/5 transition-all">
+                <Card
+                  padding="md"
+                  rounded="2xl"
+                  className="group-hover:bg-white/5"
+                >
                   <div className="flex flex-wrap justify-between items-start mb-4">
                     <div>
                       <h3 className="text-xl font-bold text-white group-hover:text-emerald-400 transition-colors">
@@ -43,7 +48,7 @@ const ExperienceTimeline: React.FC = () => {
                   <p className="text-slate-400 text-sm leading-relaxed">
                     {exp.description}
                   </p>
-                </div>
+                </Card>
               </div>
             ))}
           </div>

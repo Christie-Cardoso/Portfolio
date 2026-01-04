@@ -1,9 +1,8 @@
 import React, { forwardRef } from "react";
-import { LucideIcon } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 
 type ButtonVariant = "primary" | "secondary" | "ghost" | "link";
 type ButtonSize = "sm" | "md" | "lg";
-type ButtonElement = "button" | "a";
 
 interface BaseButtonProps {
   variant?: ButtonVariant;
@@ -119,7 +118,7 @@ const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonProps>(
       );
     }
 
-    const { type = "button", onClick, disabled } = restProps as ButtonAsButton;
+    const { type = "button", onClick } = restProps as ButtonAsButton;
     return (
       <button
         ref={ref as React.Ref<HTMLButtonElement>}

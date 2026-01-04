@@ -1,5 +1,6 @@
 import React from "react";
 import { HOBBIES, ABOUT_CONTENT } from "../../constants/constants";
+import Card from "../ui/Card";
 
 const About: React.FC = () => {
   return (
@@ -39,8 +40,13 @@ const About: React.FC = () => {
         </div>
 
         <div className="lg:col-span-5 space-y-10">
-          <div className="glass p-8 rounded-[2.5rem] border-white/5 relative overflow-hidden group">
-            <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/10 rounded-full blur-3xl -mr-16 -mt-16"></div>
+          <Card
+            glow
+            glowColor="emerald"
+            rounded="4xl"
+            padding="lg"
+            className="relative overflow-hidden group"
+          >
             <h4 className="text-xl font-bold text-white mb-8 flex items-center">
               <span className="w-2 h-2 bg-emerald-500 rounded-full mr-3"></span>
               Lado Pessoal & Hobbies
@@ -63,7 +69,7 @@ const About: React.FC = () => {
                 );
               })}
             </div>
-          </div>
+          </Card>
         </div>
       </div>
     </div>

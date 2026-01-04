@@ -1,5 +1,7 @@
 import React from "react";
 import { PORTFOLIO_DATA } from "../../constants/constants";
+import Button from "../ui/Button";
+import { Download } from "lucide-react";
 
 const Hero: React.FC = () => {
   return (
@@ -26,27 +28,16 @@ const Hero: React.FC = () => {
             {PORTFOLIO_DATA.bio}
           </p>
           <div className="flex flex-wrap gap-4">
-            <a
+            <Button
+              as="a"
               href="/curriculo.pdf"
               download
-              className="px-8 py-4 rounded-xl bg-emerald-500 text-white font-bold hover:bg-emerald-600 transition-all hover:scale-105 active:scale-95 shadow-lg shadow-emerald-500/20 flex items-center gap-2"
+              size="lg"
+              icon={Download}
+              iconPosition="left"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 16v1a2 2 0 002 2h12a2 2 0 002-2v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
-                />
-              </svg>
               Baixar Currículo
-            </a>
+            </Button>
           </div>
         </div>
 
