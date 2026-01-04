@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { PORTFOLIO_DATA, CONTACT_CONTENT } from "../../constants/constants";
+import { EmailService } from "../../api/emailService";
 
 // Validation Schema
 const contactSchema = z.object({
@@ -40,26 +41,7 @@ const Contact: React.FC = () => {
     setSubmitStatus("idle");
 
     try {
-      const apiUrl = import.meta.env.VITE_EMAIL_API_URL || "https://portfolio-email-api-ashen.vercel.app/api/send-email";
-
-      const response = await fetch(apiUrl, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          name: data.name,
-          email: data.email,
-          subject: data.subject,
-          message: data.message,
-        }),
-      });
-
-      if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.error || "Failed to send email");
-      }
-
+      await EmailService.sendEmail(data);
       setSubmitStatus("success");
       reset();
     } catch (error) {
@@ -270,7 +252,7 @@ const Contact: React.FC = () => {
                     </div>
                   )}
                   {submitStatus === "error" && (
-                    <div className="p-4 rounded-xl bg-red-500/10 border border-red-500/20 text-red-400 text-sm font-medium text-center animate-in fade-in slide-in-from-bottom-2">
+                    <div className="p-4 rounded-xl bg-red-500/10 border border-red-500/20 text-red-400 text-sm font-medium text-center animate-in fade-in-from-bottom-2">
                       Ocorreu um erro ao enviar. Por favor, tente novamente ou
                       use o e-mail direto.
                     </div>
