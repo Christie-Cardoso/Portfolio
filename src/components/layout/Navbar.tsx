@@ -34,10 +34,10 @@ const Navbar: React.FC = () => {
       <header className="fixed top-0 left-0 right-0 z-50 flex justify-center pt-4 md:pt-6 px-4">
         <nav
           className={`
-            relative flex items-center justify-end md:justify-center transition-all duration-500 ease-in-out
+            relative flex items-center justify-end md:justify-center transition-[max-width,padding,background-color,border-radius] duration-500 ease-in-out
             ${
               isScrolled
-                ? " py-3 border-none rounded-2xl glass w-full max-w-2xl"
+                ? " py-3 rounded-2xl bg-white/3 backdrop-blur-md w-full max-w-2xl"
                 : " py-4 w-full max-w-7xl bg-transparent"
             }
           `}
