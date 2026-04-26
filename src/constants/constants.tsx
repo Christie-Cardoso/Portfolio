@@ -4,6 +4,24 @@ import type { Project, Skill, Experience } from "../types/types";
 export const PROJECTS: Project[] = [
   {
     id: "0",
+    title: "Portal Câmara",
+    description:
+      "Plataforma de transparência parlamentar para acompanhamento de gastos, votações e proposições de Deputados Federais. Desenvolvida com Next.js e Tailwind CSS, utiliza a API de Dados Abertos da Câmara para fornecer dados reais e atualizados, com dashboards interativos e comparativos entre parlamentares.",
+    image:
+      "https://res.cloudinary.com/dmvm1mlgv/image/upload/v1777244780/portal_dznxdq.png",
+    tags: [
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "Supabase",
+      "API REST",
+      "Vercel",
+    ],
+    link: "https://portal-camara.vercel.app",
+    github: "https://github.com/Christie-Cardoso/portal-camara",
+  },
+  {
+    id: "1",
     title: "Portfolio Pessoal",
     description:
       "Site de portfólio pessoal desenvolvido com React e TypeScript, apresentando projetos, habilidades e experiências profissionais. Conta com formulário de contato integrado a uma API serverless para envio de emails, design moderno com Tailwind CSS e animações suaves.",
