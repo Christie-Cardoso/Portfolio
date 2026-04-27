@@ -1,0 +1,99 @@
+{
+  "nav": {
+    "about": "Sobre",
+    "skills": "Tecnologias",
+    "experience": "Experiência",
+    "projects": "Projetos",
+    "contact": "Contato"
+  },
+  "hero": {
+    "greeting": "Olá, me chamo",
+    "downloadCV": "Baixar Currículo",
+    "role": "Desenvolvedora Full Stack"
+  },
+  "about": {
+    "badge": "Sobre Mim",
+    "title": "Desenvolvedora Full Stack com experiência em",
+    "location": "Arquitetura de Software.",
+    "p1": "Meu nome é <1>Christie Cardoso</1> e sou desenvolvedora <1>Full Stack</1>, com cerca de 2 anos de experiência. Trabalho principalmente com sistemas web, tanto no front quanto no back, sempre tentando manter o código simples e bem organizado.",
+    "p2": "Concluí minha pós-graduação em <1>Arquitetura de Software Distribuído pela PUC Minas</1> (2025). Hoje trabalho na MyPetOne, mexendo em sistemas internos, automação de processos e integrações com ERPs e marketplaces.",
+    "p3": "No front uso bastante React e Next.js. No back, Node.js e PostgreSQL. Costumo usar Docker e Prisma no dia a dia pra manter padrão e facilitar manutenção."
+  },
+  "projects": {
+    "badge": "Portfólio",
+    "title": "Projetos em Destaque",
+    "viewAll": "Ver todos os projetos",
+    "demo": "Demo Live",
+    "code": "Code",
+    "galleryTitle": "Galeria de",
+    "gallerySubtitle": "Projetos",
+    "searchPlaceholder": "Buscar projeto ou tecnologia...",
+    "backHome": "Voltar para Início",
+    "notFound": "Nenhum projeto encontrado",
+    "notFoundDesc": "Tente buscar por outro termo ou categoria.",
+    "clearFilters": "Limpar filtros",
+    "items": {
+      "0": {
+        "title": "Portal Câmara",
+        "description": "Plataforma de transparência parlamentar para acompanhamento de gastos, votações e proposições de Deputados Federais. Desenvolvida com Next.js e Tailwind CSS, utiliza a API de Dados Abertos da Câmara para fornecer dados reais e atualizados, com dashboards interativos e comparativos entre parlamentares."
+      },
+      "1": {
+        "title": "Portfolio Pessoal",
+        "description": "Site de portfólio pessoal desenvolvido com React e TypeScript, apresentando projetos, habilidades e experiências profissionais. Conta com formulário de contato integrado a uma API serverless para envio de emails, design moderno com Tailwind CSS e animações suaves."
+      }
+    }
+  },
+  "skills": {
+    "title": "Minhas Habilidades",
+    "subtitle": "Tecnologias e ferramentas que utilizo no meu dia a dia"
+  },
+  "experience": {
+    "title": "Experiência Profissional",
+    "period": {
+      "current": "Atual"
+    },
+    "items": {
+      "exp1": {
+        "role": "Desenvolvedor de Software Júnior",
+        "description": "Participo no desenvolvimento e aprimoramento de sistemas internos escaláveis, com foco na automação de fluxos importantes e integração via APIs REST com grandes Marketplaces. No front-end, trabalho com React e Next.js usando Tailwind CSS para criar interfaces ágeis e de boa performance. Também colaboro na padronização de ambientes com Docker e na arquitetura de dados com PostgreSQL/MongoDB utilizando Prisma ORM, sempre buscando melhorar a eficiência e minimizar erros operacionais."
+      },
+      "exp2": {
+        "role": "Estagiário de Desenvolvimento Web",
+        "description": "Desenvolvi soluções personalizadas para sites em WordPress, utilizando PHP e JavaScript. Meu foco estava na otimização de performance (Web Vitals) e na melhoria da UI/UX para oferecer uma experiência mais fluida ao usuário. Também fiquei responsável pela gestão dos ambientes de hospedagem via cPanel, incluindo a configuração de temas, plugins e manutenção preventiva para garantir o bom funcionamento e alta disponibilidade dos sites."
+      },
+      "exp3": {
+        "role": "Estagiário de Infraestrutura",
+        "description": "Prestei suporte técnico para usuários finais e auxiliei na administração de infraestrutura de redes. Implementei rotinas de backup e recuperação de dados para garantir a integridade da informação e a continuidade dos processos. Também fiquei envolvido na gestão de chamados técnicos e na configuração de máquinas em ambientes híbridos (Windows/Linux), sempre buscando resolver problemas de forma eficiente."
+      }
+    }
+  },
+  "contact": {
+    "title": "Contato",
+    "description": "Estou disponível para projetos freelance que me permitam aplicar e expandir minhas habilidades técnicas, sempre buscando novos desafios para crescer como desenvolvedor.",
+    "socialsTitle": "Me encontre em",
+    "directContactTitle": "Contato Direto",
+    "form": {
+      "nameLabel": "Seu Nome",
+      "namePlaceholder": "Ex: João Silva",
+      "nameError": "O nome deve ter pelo menos 2 caracteres",
+      "emailLabel": "Seu E-mail",
+      "emailPlaceholder": "email@exemplo.com",
+      "emailError": "Digite um e-mail válido",
+      "subjectLabel": "Assunto",
+      "subjectPlaceholder": "Sobre o que vamos conversar?",
+      "subjectError": "O assunto deve ter pelo menos 5 caracteres",
+      "messageLabel": "Sua Mensagem",
+      "messagePlaceholder": "Conte um pouco sobre sua ideia ou projeto...",
+      "messageError": "A mensagem deve ter pelo menos 10 caracteres",
+      "buttonText": "Enviar Mensagem",
+      "success": "Mensagem enviada com sucesso!",
+      "error": "Erro ao enviar mensagem. Tente novamente."
+    }
+  },
+  "hobbies": {
+    "Gastronomia": "Gastronomia",
+    "Video Game": "Video Game",
+    "Academia": "Academia",
+    "Futebol": "Futebol"
+  }
+}

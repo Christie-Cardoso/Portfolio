@@ -1,14 +1,16 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { EXPERIENCES } from "../../constants/constants";
 
 const ExperienceTimeline: React.FC = () => {
+  const { t } = useTranslation();
   return (
     <section id="experience" className="py-24">
       <div className="container mx-auto px-6">
         <div className="flex flex-col md:flex-row gap-12">
           <div className="md:w-1/3">
             <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
-              Trajetória Profissional
+              {t("experience.title")}
             </h2>
           </div>
 
@@ -30,7 +32,7 @@ const ExperienceTimeline: React.FC = () => {
                   <div className="flex flex-wrap justify-between items-start mb-4">
                     <div>
                       <h3 className="text-xl font-bold text-white group-hover:text-emerald-400 transition-colors">
-                        {exp.role}
+                        {t(`experience.items.${exp.id}.role`)}
                       </h3>
                       <p className="text-emerald-500 font-medium">
                         {exp.company}
@@ -41,7 +43,7 @@ const ExperienceTimeline: React.FC = () => {
                     </span>
                   </div>
                   <p className="text-slate-400 text-sm leading-relaxed">
-                    {exp.description}
+                    {t(`experience.items.${exp.id}.description`)}
                   </p>
                 </div>
               </div>

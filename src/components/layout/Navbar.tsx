@@ -1,11 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import { NAV_LINKS } from "../../constants/constants";
 
 const Navbar: React.FC = () => {
+  const { t, i18n } = useTranslation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const toggleLanguage = () => {
+    const newLang = i18n.language === "pt" ? "en" : "pt";
+    i18n.changeLanguage(newLang);
+  };
   const location = useLocation();
   const isHome = location.pathname === "/";
 
@@ -35,14 +42,12 @@ const Navbar: React.FC = () => {
         <nav
           className={`
             relative flex items-center justify-end md:justify-center transition-[max-width,padding,background-color,border-radius] duration-500 ease-in-out
-            ${
-              isScrolled
-                ? " py-3 rounded-2xl bg-white/3 backdrop-blur-md w-full max-w-2xl"
-                : " py-4 w-full max-w-7xl bg-transparent"
+            ${isScrolled
+              ? " py-3 rounded-2xl bg-white/3 backdrop-blur-md w-full max-w-2xl"
+              : " py-4 w-full max-w-7xl bg-transparent"
             }
           `}
         >
-          {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-2 md:justify-center w-full">
             {NAV_LINKS.map((link) =>
               isHome ? (
@@ -52,7 +57,7 @@ const Navbar: React.FC = () => {
                   onClick={(e) => handleNavClick(e, link.id)}
                   className="px-4 py-2 text-sm font-medium text-slate-300 hover:text-emerald-400 transition-all hover:bg-white/5 rounded-xl group relative overflow-hidden"
                 >
-                  <span className="relative z-10">{link.label}</span>
+                  <span className="relative z-10">{t(`nav.${link.id}`)}</span>
                   <span className="absolute bottom-0 left-0 w-full h-0.5 bg-emerald-500 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
                 </a>
               ) : (
@@ -61,7 +66,7 @@ const Navbar: React.FC = () => {
                   to={`/${link.href}`}
                   className="px-4 py-2 text-sm font-medium text-slate-300 hover: transition-all hover:bg-white/5 rounded-xl group relative overflow-hidden"
                 >
-                  <span className="relative z-10">{link.label}</span>
+                  <span className="relative z-10">{t(`nav.${link.id}`)}</span>
                   <span className="absolute bottom-0 left-0 w-full h-0.5 bg-emerald-500 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
                 </Link>
               )
@@ -70,60 +75,98 @@ const Navbar: React.FC = () => {
             <Link
               to="/projects"
               className={`
-                px-5 py-2 text-sm font-medium transition-all rounded-xl ml-2
-                ${
-                  location.pathname === "/projects"
-                    ? "bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 shadow-[0_0_15px_rgba(16,185,129,0.2)]"
-                    : "text-slate-300 hover:text-emerald-400 hover:bg-white/5"
+                px-5 py-2 text-sm font-medium transition-all rounded-xl ml-2 group relative overflow-hidden
+                ${location.pathname === "/projects"
+                  ? "bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 shadow-[0_0_15px_rgba(16,185,129,0.2)]"
+                  : "text-slate-300 hover:text-emerald-400 hover:bg-white/5"
                 }
               `}
             >
-              Projetos
+              <span className="relative z-10">{t("nav.projects")}</span>
+              <span className="absolute bottom-0 left-0 w-full h-0.5 bg-emerald-500 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
             </Link>
 
-            <div className="pl-6 ml-2 border-l border-white/10">
+            <div className="pl-6 ml-2 border-l border-white/10 flex items-center gap-4">
+              <button
+                onClick={toggleLanguage}
+                className="group flex items-center gap-3 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 hover:border-emerald-500/50 hover:bg-emerald-500/5 transition-all duration-300 cursor-pointer"
+                title={i18n.language === "pt" ? "Switch to English" : "Mudar para Português"}
+              >
+                <div className="flex items-center gap-2">
+                  {i18n.language === "pt" ? (
+                    <>
+                      <img
+                        src="https://flagcdn.com/w40/br.png"
+                        alt="Português"
+                        className="w-5 h-3.5 object-cover rounded-sm shadow-sm"
+                      />
+                      <span className="text-[10px] font-bold text-slate-400 group-hover:text-emerald-400 transition-colors uppercase tracking-widest">PT</span>
+                    </>
+                  ) : (
+                    <>
+                      <img
+                        src="https://flagcdn.com/w40/us.png"
+                        alt="English"
+                        className="w-5 h-3.5 object-cover rounded-sm shadow-sm"
+                      />
+                      <span className="text-[10px] font-bold text-slate-400 group-hover:text-emerald-400 transition-colors uppercase tracking-widest">EN</span>
+                    </>
+                  )}
+                </div>
+              </button>
+
               {isHome ? (
                 <a
                   href="#contact"
                   onClick={(e) => handleNavClick(e, "contact")}
                   className="px-6 py-2.5 rounded-xl bg-emerald-500 text-white text-sm font-bold hover: transition-all shadow-lg shadow-emerald-500/20 active: scale-95 hover:-translate-y-0.5"
                 >
-                  Contato
+                  {t("nav.contact")}
                 </a>
               ) : (
                 <Link
                   to="/#contact"
                   className="px-6 py-2.5 rounded-xl bg-emerald-500 text-white text-sm font-bold hover: transition-all shadow-lg shadow-emerald-500/20 active: scale-95 hover:-translate-y-0.5"
                 >
-                  Contato
+                  {t("nav.contact")}
                 </Link>
               )}
             </div>
           </div>
 
-          {/* Mobile Toggle Button - Ícones Lucide */}
-          <button
-            className="md:hidden text-white p-2 hover:bg-white/10 rounded-lg transition-colors relative z-50"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-label="Toggle menu"
-          >
-            {isMobileMenuOpen ? (
-              <X className="h-6 w-6" />
-            ) : (
-              <Menu className="h-6 w-6" />
-            )}
-          </button>
+          <div className="flex items-center gap-2 md:hidden">
+            <button
+              onClick={toggleLanguage}
+              className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10"
+            >
+              <img
+                src={i18n.language === "pt" ? "https://flagcdn.com/w40/br.png" : "https://flagcdn.com/w40/us.png"}
+                alt={i18n.language === "pt" ? "Português" : "English"}
+                className="w-5 h-3.5 object-cover rounded-sm shadow-sm"
+              />
+              <span className="text-[10px] font-bold text-slate-300 uppercase tracking-widest">{i18n.language}</span>
+            </button>
+            <button
+              className="text-white p-2 hover:bg-white/10 rounded-lg transition-colors relative z-50"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              aria-label="Toggle menu"
+            >
+              {isMobileMenuOpen ? (
+                <X className="h-6 w-6" />
+              ) : (
+                <Menu className="h-6 w-6" />
+              )}
+            </button>
+          </div>
         </nav>
       </header>
 
-      {/* Mobile Menu Overlay */}
       <div
         className={`
           fixed inset-0 z-40 bg-brand-dark/95 backdrop-blur-xl transition-all duration-300 md: hidden
-          ${
-            isMobileMenuOpen
-              ? "opacity-100 pointer-events-auto"
-              : "opacity-0 pointer-events-none"
+          ${isMobileMenuOpen
+            ? "opacity-100 pointer-events-auto"
+            : "opacity-0 pointer-events-none"
           }
         `}
       >
@@ -134,28 +177,26 @@ const Navbar: React.FC = () => {
                 key={link.id}
                 href={link.href}
                 onClick={(e) => handleNavClick(e, link.id)}
-                className={`text-2xl font-bold text-slate-300 hover:text-white hover:scale-110 transition-all duration-300 ${
-                  isMobileMenuOpen
+                className={`text-2xl font-bold text-slate-300 hover:text-white hover:scale-110 transition-all duration-300 ${isMobileMenuOpen
                     ? "translate-y-0 opacity-100"
                     : "translate-y-10 opacity-0"
-                }`}
+                  }`}
                 style={{ transitionDelay: `${idx * 100}ms` }}
               >
-                {link.label}
+                <span className="relative z-10">{t(`nav.${link.id}`)}</span>
               </a>
             ) : (
               <Link
                 key={link.id}
                 to={`/${link.href}`}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className={`text-2xl font-bold text-slate-300 hover:text-white hover:scale-110 transition-all duration-300 ${
-                  isMobileMenuOpen
+                className={`text-2xl font-bold text-slate-300 hover:text-white hover:scale-110 transition-all duration-300 ${isMobileMenuOpen
                     ? "translate-y-0 opacity-100"
                     : "translate-y-10 opacity-0"
-                }`}
+                  }`}
                 style={{ transitionDelay: `${idx * 100}ms` }}
               >
-                {link.label}
+                <span className="relative z-10">{t(`nav.${link.id}`)}</span>
               </Link>
             )
           )}
@@ -163,22 +204,20 @@ const Navbar: React.FC = () => {
           <Link
             to="/projects"
             onClick={() => setIsMobileMenuOpen(false)}
-            className={`text-2xl font-bold text-emerald-400 hover: hover:scale-110 transition-all duration-300 ${
-              isMobileMenuOpen
+            className={`text-2xl font-bold text-emerald-400 hover: hover:scale-110 transition-all duration-300 ${isMobileMenuOpen
                 ? "translate-y-0 opacity-100"
                 : "translate-y-10 opacity-0"
-            }`}
+              }`}
             style={{ transitionDelay: "300ms" }}
           >
-            Projetos
+            <span className="relative z-10">{t("nav.projects")}</span>
           </Link>
 
           <div
-            className={`pt-8 transition-all duration-300 ${
-              isMobileMenuOpen
+            className={`pt-8 transition-all duration-300 ${isMobileMenuOpen
                 ? "translate-y-0 opacity-100"
                 : "translate-y-10 opacity-0"
-            }`}
+              }`}
             style={{ transitionDelay: "400ms" }}
           >
             {isHome ? (
@@ -187,7 +226,7 @@ const Navbar: React.FC = () => {
                 onClick={(e) => handleNavClick(e, "contact")}
                 className="px-8 py-4 rounded-2xl bg-linear-to-r from-emerald-500 to-emerald-600 text-white text-lg font-bold shadow-xl shadow-emerald-500/20 active:scale-95 block text-center"
               >
-                Entrar em Contato
+                {t("nav.contact")}
               </a>
             ) : (
               <Link
@@ -195,7 +234,7 @@ const Navbar: React.FC = () => {
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="px-8 py-4 rounded-2xl bg-linear-to-r from-emerald-500 to-emerald-600 text-white text-lg font-bold shadow-xl shadow-emerald-500/20 active:scale-95 block text-center"
               >
-                Entrar em Contato
+                {t("nav.contact")}
               </Link>
             )}
           </div>

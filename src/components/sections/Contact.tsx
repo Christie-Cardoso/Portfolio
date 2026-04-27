@@ -1,26 +1,28 @@
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { PORTFOLIO_DATA, CONTACT_CONTENT } from "../../constants/constants";
-
-// Validation Schema
-const contactSchema = z.object({
-  name: z
-    .string()
-    .min(2, { message: "O nome deve ter pelo menos 2 caracteres" }),
-  email: z.string().email({ message: "Digite um e-mail válido" }),
-  subject: z
-    .string()
-    .min(5, { message: "O assunto deve ter pelo menos 5 caracteres" }),
-  message: z
-    .string()
-    .min(10, { message: "A mensagem deve ter pelo menos 10 caracteres" }),
-});
-
-type ContactFormData = z.infer<typeof contactSchema>;
+import { PORTFOLIO_DATA } from "../../constants/constants";
 
 const Contact: React.FC = () => {
+  const { t } = useTranslation();
+
+  const contactSchema = z.object({
+    name: z
+      .string()
+      .min(2, { message: t("contact.form.nameError") || "O nome deve ter pelo menos 2 caracteres" }),
+    email: z.string().email({ message: t("contact.form.emailError") || "Digite um e-mail válido" }),
+    subject: z
+      .string()
+      .min(5, { message: t("contact.form.subjectError") || "O assunto deve ter pelo menos 5 caracteres" }),
+    message: z
+      .string()
+      .min(10, { message: t("contact.form.messageError") || "A mensagem deve ter pelo menos 10 caracteres" }),
+  });
+
+  type ContactFormData = z.infer<typeof contactSchema>;
+
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<
     "idle" | "success" | "error"
@@ -72,28 +74,26 @@ const Contact: React.FC = () => {
 
   return (
     <section id="contact" className="py-24 relative overflow-hidden">
-      {/* Background decoration */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_center,rgba(16,185,129,0.05)_0%,transparent_70%)] pointer-events-none"></div>
-
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-6xl mx-auto">
           <div className="grid lg:grid-cols-5 gap-16 items-start">
-            {/* Informações de Contato (2 colunas) */}
             <div className="lg:col-span-2 space-y-10">
               <div className="space-y-6">
                 <h2
                   className="text-4xl md:text-5xl font-bold text-white tracking-tight leading-tight"
-                  dangerouslySetInnerHTML={{ __html: CONTACT_CONTENT.title }}
-                />
+                >
+                  {t("contact.title")}
+                </h2>
                 <p className="text-slate-400 text-lg leading-relaxed">
-                  {CONTACT_CONTENT.description}
+                  {t("contact.description")}
                 </p>
               </div>
 
               <div className="space-y-8">
                 <div className="flex flex-col space-y-4">
                   <span className="text-xs uppercase tracking-[0.2em] text-emerald-500 font-bold">
-                    {CONTACT_CONTENT.socialsTitle}
+                    {t("contact.socialsTitle")}
                   </span>
                   <div className="flex space-x-4">
                     <a
@@ -135,7 +135,7 @@ const Contact: React.FC = () => {
 
                 <div className="flex flex-col space-y-2">
                   <span className="text-xs uppercase tracking-[0.2em] text-emerald-500 font-bold">
-                    {CONTACT_CONTENT.directContactTitle}
+                    {t("contact.directContactTitle")}
                   </span>
                   <a
                     href={`mailto:${PORTFOLIO_DATA.email}`}
@@ -147,22 +147,20 @@ const Contact: React.FC = () => {
               </div>
             </div>
 
-            {/* Formulário (3 colunas) */}
             <div className="lg:col-span-3">
               <div className="glass p-8 md:p-10 rounded-4xl border-white/5 bg-white/2">
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
                   <div className="grid md:grid-cols-2 gap-6">
                     <div className="space-y-2">
                       <label className="text-sm font-medium text-slate-300 ml-1">
-                        {CONTACT_CONTENT.form.nameLabel}
+                        {t("contact.form.nameLabel")}
                       </label>
                       <input
                         {...register("name")}
                         type="text"
-                        className={`w-full bg-slate-900/50 border rounded-2xl px-5 py-4 text-white placeholder:text-slate-600 focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500/50 outline-none transition-all ${
-                          errors.name ? "border-red-500/50" : "border-white/10"
-                        }`}
-                        placeholder={CONTACT_CONTENT.form.namePlaceholder}
+                        className={`w-full bg-slate-900/50 border rounded-2xl px-5 py-4 text-white placeholder:text-slate-600 focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500/50 outline-none transition-all ${errors.name ? "border-red-500/50" : "border-white/10"
+                          }`}
+                        placeholder={t("contact.form.namePlaceholder")}
                         disabled={isSubmitting}
                       />
                       {errors.name && (
@@ -173,15 +171,14 @@ const Contact: React.FC = () => {
                     </div>
                     <div className="space-y-2">
                       <label className="text-sm font-medium text-slate-300 ml-1">
-                        {CONTACT_CONTENT.form.emailLabel}
+                        {t("contact.form.emailLabel")}
                       </label>
                       <input
                         {...register("email")}
                         type="email"
-                        className={`w-full bg-slate-900/50 border rounded-2xl px-5 py-4 text-white placeholder:text-slate-600 focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500/50 outline-none transition-all ${
-                          errors.email ? "border-red-500/50" : "border-white/10"
-                        }`}
-                        placeholder={CONTACT_CONTENT.form.emailPlaceholder}
+                        className={`w-full bg-slate-900/50 border rounded-2xl px-5 py-4 text-white placeholder:text-slate-600 focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500/50 outline-none transition-all ${errors.email ? "border-red-500/50" : "border-white/10"
+                          }`}
+                        placeholder={t("contact.form.emailPlaceholder")}
                         disabled={isSubmitting}
                       />
                       {errors.email && (
@@ -194,15 +191,14 @@ const Contact: React.FC = () => {
 
                   <div className="space-y-2">
                     <label className="text-sm font-medium text-slate-300 ml-1">
-                      {CONTACT_CONTENT.form.subjectLabel}
+                      {t("contact.form.subjectLabel")}
                     </label>
                     <input
                       {...register("subject")}
                       type="text"
-                      className={`w-full bg-slate-900/50 border rounded-2xl px-5 py-4 text-white placeholder:text-slate-600 focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500/50 outline-none transition-all ${
-                        errors.subject ? "border-red-500/50" : "border-white/10"
-                      }`}
-                      placeholder={CONTACT_CONTENT.form.subjectPlaceholder}
+                      className={`w-full bg-slate-900/50 border rounded-2xl px-5 py-4 text-white placeholder:text-slate-600 focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500/50 outline-none transition-all ${errors.subject ? "border-red-500/50" : "border-white/10"
+                        }`}
+                      placeholder={t("contact.form.subjectPlaceholder")}
                       disabled={isSubmitting}
                     />
                     {errors.subject && (
@@ -214,15 +210,14 @@ const Contact: React.FC = () => {
 
                   <div className="space-y-2">
                     <label className="text-sm font-medium text-slate-300 ml-1">
-                      {CONTACT_CONTENT.form.messageLabel}
+                      {t("contact.form.messageLabel")}
                     </label>
                     <textarea
                       {...register("message")}
                       rows={5}
-                      className={`w-full bg-slate-900/50 border rounded-2xl px-5 py-4 text-white placeholder:text-slate-600 focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500/50 outline-none transition-all resize-none ${
-                        errors.message ? "border-red-500/50" : "border-white/10"
-                      }`}
-                      placeholder={CONTACT_CONTENT.form.messagePlaceholder}
+                      className={`w-full bg-slate-900/50 border rounded-2xl px-5 py-4 text-white placeholder:text-slate-600 focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500/50 outline-none transition-all resize-none ${errors.message ? "border-red-500/50" : "border-white/10"
+                        }`}
+                      placeholder={t("contact.form.messagePlaceholder")}
                       disabled={isSubmitting}
                     ></textarea>
                     {errors.message && (
@@ -242,7 +237,7 @@ const Contact: React.FC = () => {
                     ) : (
                       <>
                         <span className="relative z-10 cursor-pointer">
-                          {CONTACT_CONTENT.form.buttonText}
+                          {t("contact.form.buttonText")}
                         </span>
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -262,17 +257,14 @@ const Contact: React.FC = () => {
                     )}
                   </button>
 
-                  {/* Feedback Messages */}
                   {submitStatus === "success" && (
                     <div className="p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-sm font-medium text-center animate-in fade-in slide-in-from-bottom-2">
-                      Mensagem enviada com sucesso! Entrarei em contato em
-                      breve.
+                      {t("contact.form.success")}
                     </div>
                   )}
                   {submitStatus === "error" && (
                     <div className="p-4 rounded-xl bg-red-500/10 border border-red-500/20 text-red-400 text-sm font-medium text-center animate-in fade-in slide-in-from-bottom-2">
-                      Ocorreu um erro ao enviar. Por favor, tente novamente ou
-                      use o e-mail direto.
+                      {t("contact.form.error")}
                     </div>
                   )}
                 </form>

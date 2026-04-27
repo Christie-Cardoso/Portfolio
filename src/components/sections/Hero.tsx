@@ -1,10 +1,11 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { PORTFOLIO_DATA } from "../../constants/constants";
 
 const Hero: React.FC = () => {
+  const { t } = useTranslation();
   return (
     <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
-      {/* Decorative Blur Orbs */}
       <div className="absolute top-1/4 -left-20 w-72 h-72 bg-emerald-500/10 rounded-full blur-[100px] pointer-events-none"></div>
       <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-blue-500/10 rounded-full blur-[100px] pointer-events-none"></div>
 
@@ -12,18 +13,18 @@ const Hero: React.FC = () => {
         <div className="space-y-8 order-2 md:order-1">
           <div className="space-y-4">
             <h2 className="text-emerald-400 font-mono tracking-wider text-sm md:text-base uppercase">
-              Olá, me chamo
+              {t("hero.greeting")}
             </h2>
             <h1 className="text-5xl md:text-7xl font-extrabold text-white tracking-tight">
               {PORTFOLIO_DATA.name.split(" ")[0]}{" "}
               {PORTFOLIO_DATA.name.split(" ")[1]}
             </h1>
             <h3 className="text-2xl md:text-4xl font-semibold text-slate-400">
-              {PORTFOLIO_DATA.role}
+              {t("hero.role")}
             </h3>
           </div>
           <p className="text-lg text-slate-400 leading-relaxed max-w-xl">
-            {PORTFOLIO_DATA.bio}
+            {t("contact.description")}
           </p>
           <div className="flex flex-wrap gap-4">
             <a
@@ -45,7 +46,7 @@ const Hero: React.FC = () => {
                   d="M4 16v1a2 2 0 002 2h12a2 2 0 002-2v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
                 />
               </svg>
-              Baixar Currículo
+              {t("hero.downloadCV")}
             </a>
           </div>
         </div>
