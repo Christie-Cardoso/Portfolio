@@ -1,0 +1,99 @@
+{
+  "nav": {
+    "about": "About",
+    "skills": "Skills",
+    "experience": "Experience",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "hero": {
+    "greeting": "Hi, my name is",
+    "downloadCV": "Download Resume",
+    "role": "Full Stack Developer"
+  },
+  "about": {
+    "badge": "About Me",
+    "title": "Full Stack Developer with experience in",
+    "location": "Software Architecture.",
+    "p1": "My name is <1>Christie Cardoso</1> and I am a <1>Full Stack</1> developer with about 2 years of experience. I mainly work with web systems, both front-end and back-end, always trying to keep the code simple and well-organized.",
+    "p2": "I completed my postgraduate degree in <1>Distributed Software Architecture at PUC Minas</1> (2025). Today I work at MyPetOne, working on internal systems, process automation, and integrations with ERPs and marketplaces.",
+    "p3": "On the front-end, I use React and Next.js a lot. On the back-end, Node.js and PostgreSQL. I usually use Docker and Prisma daily to maintain standards and facilitate maintenance."
+  },
+  "projects": {
+    "badge": "Portfolio",
+    "title": "Featured Projects",
+    "viewAll": "View all projects",
+    "demo": "Live Demo",
+    "code": "Code",
+    "galleryTitle": "Project",
+    "gallerySubtitle": "Gallery",
+    "searchPlaceholder": "Search project or technology...",
+    "backHome": "Back to Home",
+    "notFound": "No projects found",
+    "notFoundDesc": "Try searching for another term or category.",
+    "clearFilters": "Clear filters",
+    "items": {
+      "0": {
+        "title": "Portal Câmara",
+        "description": "Parliamentary transparency platform for tracking expenses, votes, and proposals of Federal Deputies. Developed with Next.js and Tailwind CSS, it uses the Chamber's Open Data API to provide real and updated data, with interactive and comparative dashboards between parliamentarians."
+      },
+      "1": {
+        "title": "Personal Portfolio",
+        "description": "Personal portfolio site developed with React and TypeScript, presenting projects, skills, and professional experiences. It features a contact form integrated with a serverless API for sending emails, modern design with Tailwind CSS, and smooth animations."
+      }
+    }
+  },
+  "skills": {
+    "title": "My Skills",
+    "subtitle": "Technologies and tools I use in my daily life"
+  },
+  "experience": {
+    "title": "Professional Experience",
+    "period": {
+      "current": "Present"
+    },
+    "items": {
+      "exp1": {
+        "role": "Junior Software Developer",
+        "description": "I participate in the development and improvement of scalable internal systems, focusing on the automation of important flows and integration via REST APIs with major Marketplaces. On the front-end, I work with React and Next.js using Tailwind CSS to create agile and high-performance interfaces. I also collaborate on environmental standardization with Docker and data architecture with PostgreSQL/MongoDB using Prisma ORM, always seeking to improve efficiency and minimize operational errors."
+      },
+      "exp2": {
+        "role": "Web Development Intern",
+        "description": "I developed customized solutions for WordPress sites using PHP and JavaScript. My focus was on performance optimization (Web Vitals) and improving UI/UX to offer a smoother user experience. I was also responsible for managing hosting environments via cPanel, including theme configuration, plugins, and preventive maintenance to ensure the proper functioning and high availability of the sites."
+      },
+      "exp3": {
+        "role": "Infrastructure Intern",
+        "description": "I provided technical support for end users and assisted in the administration of network infrastructure. I implemented backup and data recovery routines to ensure information integrity and process continuity. I was also involved in managing technical tickets and configuring machines in hybrid environments (Windows/Linux), always seeking to resolve problems efficiently."
+      }
+    }
+  },
+  "contact": {
+    "title": "Contact",
+    "description": "I am available for freelance projects that allow me to apply and expand my technical skills, always seeking new challenges to grow as a developer.",
+    "socialsTitle": "Find me on",
+    "directContactTitle": "Direct Contact",
+    "form": {
+      "nameLabel": "Your Name",
+      "namePlaceholder": "Ex: John Doe",
+      "nameError": "Name must be at least 2 characters",
+      "emailLabel": "Your E-mail",
+      "emailPlaceholder": "email@example.com",
+      "emailError": "Enter a valid email address",
+      "subjectLabel": "Subject",
+      "subjectPlaceholder": "What shall we talk about?",
+      "subjectError": "Subject must be at least 5 characters",
+      "messageLabel": "Your Message",
+      "messagePlaceholder": "Tell me a bit about your idea or project...",
+      "messageError": "Message must be at least 10 characters",
+      "buttonText": "Send Message",
+      "success": "Message sent successfully!",
+      "error": "Error sending message. Please try again."
+    }
+  },
+  "hobbies": {
+    "Gastronomia": "Gastronomy",
+    "Video Game": "Gaming",
+    "Academia": "Gym",
+    "Futebol": "Soccer"
+  }
+}

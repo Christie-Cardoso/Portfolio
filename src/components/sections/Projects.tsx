@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { ArrowRight, ExternalLink, Github } from "lucide-react";
 import { PROJECTS } from "../../constants/constants";
 
@@ -8,6 +9,7 @@ interface ProjectsProps {
 }
 
 const Projects: React.FC<ProjectsProps> = ({ featuredOnly, onViewAll }) => {
+  const { t } = useTranslation();
   const displayProjects = featuredOnly ? PROJECTS.slice(0, 3) : PROJECTS;
 
   return (
@@ -16,7 +18,7 @@ const Projects: React.FC<ProjectsProps> = ({ featuredOnly, onViewAll }) => {
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
           <div className="max-w-2xl">
             <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
-              Projetos em Destaque
+              {t("projects.title")}
             </h2>
           </div>
           {featuredOnly && (
@@ -24,7 +26,7 @@ const Projects: React.FC<ProjectsProps> = ({ featuredOnly, onViewAll }) => {
               onClick={onViewAll}
               className="flex items-center space-x-2 text-emerald-500 font-bold group cursor-pointer"
             >
-              <span>Ver todos os projetos</span>
+              <span>{t("projects.viewAll")}</span>
               <ArrowRight className="h-5 w-5 group-hover: translate-x-1 transition-transform" />
             </button>
           )}
@@ -56,11 +58,11 @@ const Projects: React.FC<ProjectsProps> = ({ featuredOnly, onViewAll }) => {
                     </span>
                   ))}
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-emerald-400 transition-colors">
-                  {project.title}
+                 <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-emerald-400 transition-colors">
+                  {t(`projects.items.${project.id}.title`)}
                 </h3>
                 <p className="text-slate-400 text-sm leading-relaxed mb-6 flex-1">
-                  {project.description}
+                  {t(`projects.items.${project.id}.description`)}
                 </p>
 
                 <div className="flex items-center space-x-4 pt-4 border-t border-white/5">
@@ -70,7 +72,7 @@ const Projects: React.FC<ProjectsProps> = ({ featuredOnly, onViewAll }) => {
                     rel="noopener noreferrer"
                     className="text-white hover:text-emerald-400 transition-colors flex items-center text-sm font-semibold cursor-pointer"
                   >
-                    Ver Demo
+                    {t("projects.demo")}
                     <ExternalLink className="h-4 w-4 ml-1" />
                   </a>
                   <a

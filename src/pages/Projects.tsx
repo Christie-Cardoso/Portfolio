@@ -1,9 +1,11 @@
 import React, { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { ArrowLeft, Search, ExternalLink, Github } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import { PROJECTS } from "../constants/constants";
 
 const ProjectsPage: React.FC = () => {
+  const { t } = useTranslation();
   const [filter, setFilter] = useState("All");
   const [search, setSearch] = useState("");
 
@@ -33,17 +35,17 @@ const ProjectsPage: React.FC = () => {
                 className="flex items-center text-slate-400 hover:text-white mb-4 transition-colors group"
               >
                 <ArrowLeft className="h-5 w-5 mr-2 group-hover:-translate-x-1 transition-transform" />
-                Voltar para Início
+                {t("projects.backHome")}
               </Link>
               <h1 className="text-5xl md:text-7xl font-bold text-white tracking-tight">
-                Galeria de <span className="gradient-text">Projetos</span>
+                {t("projects.galleryTitle")} <span className="gradient-text">{t("projects.gallerySubtitle")}</span>
               </h1>
             </div>
 
             <div className="relative group max-w-sm w-full">
               <input
                 type="text"
-                placeholder="Buscar projeto ou tecnologia..."
+                placeholder={t("projects.searchPlaceholder")}
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
                 className="w-full bg-slate-900/80 border border-white/10 rounded-2xl px-12 py-4 text-white placeholder:text-slate-600 focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 outline-none transition-all shadow-xl"
@@ -94,10 +96,10 @@ const ProjectsPage: React.FC = () => {
 
                 <div className="p-8 space-y-4 flex-1 flex flex-col">
                   <h3 className="text-3xl font-bold text-white leading-tight group-hover:text-emerald-400 transition-colors">
-                    {project.title}
+                    {t(`projects.items.${project.id}.title`)}
                   </h3>
                   <p className="text-slate-400 leading-relaxed text-sm flex-1">
-                    {project.description}
+                    {t(`projects.items.${project.id}.description`)}
                   </p>
 
                   <div className="flex flex-wrap gap-2 pt-2">
@@ -118,7 +120,7 @@ const ProjectsPage: React.FC = () => {
                       rel="noopener noreferrer"
                       className="flex items-center text-white font-bold text-sm hover:text-emerald-400 transition-colors"
                     >
-                      Demo Live
+                      {t("projects.demo")}
                       <ExternalLink className="h-4 w-4 ml-2" />
                     </a>
                     <a
@@ -127,7 +129,7 @@ const ProjectsPage: React.FC = () => {
                       rel="noopener noreferrer"
                       className="flex items-center text-slate-400 font-bold text-sm hover:text-white transition-colors"
                     >
-                      Code
+                      {t("projects.code")}
                       <Github className="w-4 h-4 ml-2" />
                     </a>
                   </div>
@@ -138,10 +140,10 @@ const ProjectsPage: React.FC = () => {
         ) : (
           <div className="py-40 text-center space-y-6 glass rounded-3xl border-white/5 animate-pulse">
             <h3 className="text-3xl font-bold text-slate-500">
-              Nenhum projeto encontrado
+              {t("projects.notFound")}
             </h3>
             <p className="text-slate-600">
-              Tente buscar por outro termo ou categoria.
+              {t("projects.notFoundDesc")}
             </p>
             <button
               onClick={() => {
@@ -150,7 +152,7 @@ const ProjectsPage: React.FC = () => {
               }}
               className="text-emerald-500 font-bold underline cursor-pointer"
             >
-              Limpar filtros
+              {t("projects.clearFilters")}
             </button>
           </div>
         )}

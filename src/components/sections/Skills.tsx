@@ -1,7 +1,9 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { SKILLS } from "../../constants/constants";
 
 const Skills: React.FC = () => {
+  const { t } = useTranslation();
   const categories: ("Frontend" | "Backend & Database" | "Tools & DevOps")[] = [
     "Frontend",
     "Backend & Database",
@@ -16,11 +18,10 @@ const Skills: React.FC = () => {
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-3xl mb-20 text-center mx-auto">
           <h2 className="text-emerald-500 font-mono text-sm tracking-[0.3em] uppercase font-bold mb-4">
-            TECNOLOGIAS
+            {t("nav.skills")}
           </h2>
           <h3 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Ferramentas de{" "}
-            <span className="gradient-text">Desenvolvimento</span>
+            {t("skills.title")}
           </h3>
         </div>
 
@@ -41,7 +42,6 @@ const Skills: React.FC = () => {
                     className="group relative flex flex-col items-center justify-center p-6 rounded-4xl glass border-white/5 hover:border-emerald-500/40 transition-all duration-500 hover:-translate-y-2 bg-white/1"
                   >
                     <div className="w-12 h-12 md:w-14 md:h-14 mb-4 flex items-center justify-center relative">
-                      {/* Glow background on hover */}
                       <div className="absolute inset-0 bg-white/10 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
                       <img
