@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Política de Privacidade — PromoRobo</title>
+<style>
+  :root { color-scheme: light; }
+  body { max-width: 46rem; margin: 0 auto; padding: 2.5rem 1.25rem 4rem;
+         font: 16px/1.65 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+         color: #1f2328; background: #fff; }
+  h1 { font-size: 1.6rem; margin-bottom: .25rem; }
+  h2 { font-size: 1.1rem; margin-top: 2rem; }
+  .meta { color: #656d76; font-size: .9rem; margin-top: 0; }
+  hr { border: 0; border-top: 1px solid #d0d7de; margin: 2.5rem 0; }
+  code { background: #f6f8fa; padding: .1rem .3rem; border-radius: 4px; font-size: .9em; }
+  ul { padding-left: 1.25rem; }
+</style>
+</head>
+<body>
+
+<h1>Política de Privacidade — PromoRobo</h1>
+<p class="meta">Última atualização: 29 de agosto de 2026</p>
+
+<p>O PromoRobo é um projeto pessoal operado por uma única pessoa física. Ele monitora ofertas e cupons
+em marketplaces de e-commerce, gera links de afiliado e publica posts promocionais em contas de redes
+sociais de propriedade do próprio operador. Esta política descreve quais dados são tratados e como.</p>
+
+<h2>1. Quem opera este serviço</h2>
+<p>PromoRobo é operado de forma individual por Christie Cardoso. Não é uma empresa, não presta serviço a
+terceiros e não gerencia contas de outras pessoas. Contato:
+<a href="mailto:christiecardoso7@gmail.com">christiecardoso7@gmail.com</a>.</p>
+
+<h2>2. Dados que NÃO coletamos</h2>
+<ul>
+  <li>Não coletamos, lemos nem armazenamos dados de perfis de outros usuários de redes sociais.</li>
+  <li>Não acessamos, enviamos nem lemos mensagens diretas (DMs).</li>
+  <li>Não coletamos nome, e-mail, telefone, CPF ou qualquer dado cadastral de visitantes.</li>
+  <li>Não usamos os dados para treinar modelos de inteligência artificial.</li>
+  <li>Não vendemos, licenciamos nem compartilhamos dados com terceiros.</li>
+</ul>
+
+<h2>3. Dados relacionados às redes sociais</h2>
+<p>O PromoRobo publica apenas em contas de redes sociais que pertencem ao próprio operador, mediante
+autorização explícita via OAuth concedida por essas contas. Dessas integrações, armazenamos somente:</p>
+<ul>
+  <li>o identificador (ID) dos posts criados pela nossa própria conta;</li>
+  <li>a data e hora de publicação desses posts;</li>
+  <li>as métricas públicas de engajamento desses mesmos posts (curtidas, compartilhamentos, comentários).</li>
+</ul>
+<p>Esses dados são usados exclusivamente para exibir números de desempenho ao operador, em um painel
+privado ao qual somente ele tem acesso. Os tokens de acesso são guardados como variáveis de ambiente
+protegidas no servidor, nunca em código-fonte, e nunca compartilhados.</p>
+
+<h2>4. Dados de cliques nos links</h2>
+<p>Os links promocionais passam por um encurtador próprio para medição de cliques. Ao registrar um
+clique, guardamos:</p>
+<ul>
+  <li>data e hora do clique;</li>
+  <li>a rede social de origem;</li>
+  <li>o endereço da página de origem (<em>referrer</em>), quando enviado pelo navegador;</li>
+  <li>o endereço IP e o <em>user-agent</em> convertidos em <strong>hash irreversível</strong> (SHA-256).</li>
+</ul>
+<p>O IP e o user-agent <strong>nunca</strong> são gravados em texto legível. O hash é uma via de mão única:
+serve apenas para distinguir cliques repetidos, e não permite recuperar o valor original nem identificar
+a pessoa. Não usamos cookies de rastreamento e não fazemos perfilamento de visitantes.</p>
+
+<h2>5. Compartilhamento com terceiros</h2>
+<p>Nenhum dado é vendido ou repassado. Ao clicar em um link, o visitante é redirecionado ao marketplace
+de destino (por exemplo Shopee, Mercado Livre, Amazon), que passa a tratar os dados sob sua própria
+política de privacidade — sobre a qual não temos controle.</p>
+
+<h2>6. Retenção e exclusão</h2>
+<p>Os registros de cliques são mantidos apenas pelo tempo necessário à análise de desempenho e podem ser
+apagados a qualquer momento pelo operador. Como não armazenamos dados que identifiquem pessoas, não há
+base de dados pessoais a ser consultada ou removida a pedido. Ainda assim, qualquer solicitação
+relacionada a privacidade pode ser enviada ao e-mail de contato acima.</p>
+
+<h2>7. Segurança</h2>
+<p>Credenciais e tokens ficam armazenados como segredos no ambiente de hospedagem, com acesso restrito ao
+operador. A comunicação com as APIs externas ocorre sempre por HTTPS.</p>
+
+<h2>8. Alterações</h2>
+<p>Esta política pode ser atualizada. A data no topo da página indica a versão vigente.</p>
+
+<hr>
+
+<h1>Privacy Policy — PromoRobo</h1>
+<p class="meta">Last updated: August 29, 2026</p>
+
+<p>PromoRobo is a personal project operated by a single individual. It monitors deals and coupons on
+e-commerce marketplaces, generates affiliate links, and publishes promotional posts to social media
+accounts owned by the operator. This policy describes what data is handled and how.</p>
+
+<h2>1. Who operates this service</h2>
+<p>PromoRobo is operated individually by Christie Cardoso. It is not a company, does not provide services
+to third parties, and does not manage anyone else's accounts. Contact:
+<a href="mailto:christiecardoso7@gmail.com">christiecardoso7@gmail.com</a>.</p>
+
+<h2>2. Data we do NOT collect</h2>
+<ul>
+  <li>We do not collect, read, or store profile data of other social media users.</li>
+  <li>We do not access, send, or read direct messages (DMs).</li>
+  <li>We do not collect names, emails, phone numbers, or any registration data from visitors.</li>
+  <li>We do not use any data to train artificial intelligence models.</li>
+  <li>We do not sell, license, or share data with third parties.</li>
+</ul>
+
+<h2>3. Social media data</h2>
+<p>PromoRobo publishes only to social media accounts owned by the operator, under explicit OAuth
+authorization granted by those accounts. From these integrations we store only:</p>
+<ul>
+  <li>the IDs of posts created by our own account;</li>
+  <li>the publication timestamp of those posts;</li>
+  <li>the public engagement metrics of those same posts (likes, shares, comments).</li>
+</ul>
+<p>This data is used solely to display performance numbers to the operator in a private dashboard only
+they can access. Access tokens are stored as protected environment variables on the server, never in
+source control, and never shared.</p>
+
+<h2>4. Link click data</h2>
+<p>Promotional links pass through our own short-link service for click measurement. When a click is
+recorded, we store:</p>
+<ul>
+  <li>the date and time of the click;</li>
+  <li>the originating social network;</li>
+  <li>the referrer, when sent by the browser;</li>
+  <li>the IP address and user-agent, converted to an <strong>irreversible hash</strong> (SHA-256).</li>
+</ul>
+<p>IP addresses and user-agents are <strong>never</strong> stored in readable form. The hash is one-way: it
+only serves to distinguish repeated clicks and cannot be reversed to the original value or used to
+identify a person. We do not use tracking cookies and we do not profile visitors.</p>
+
+<h2>5. Third-party sharing</h2>
+<p>No data is sold or passed on. When a visitor clicks a link, they are redirected to the destination
+marketplace (for example Shopee, Mercado Livre, Amazon), which then handles data under its own privacy
+policy, over which we have no control.</p>
+
+<h2>6. Retention and deletion</h2>
+<p>Click records are kept only as long as needed for performance analysis and may be deleted by the
+operator at any time. Because we do not store personally identifying data, there is no personal database
+to look up or erase on request. Any privacy-related request may still be sent to the contact email above.</p>
+
+<h2>7. Security</h2>
+<p>Credentials and tokens are stored as secrets in the hosting environment, accessible only to the
+operator. Communication with external APIs always uses HTTPS.</p>
+
+<h2>8. Changes</h2>
+<p>This policy may be updated. The date at the top of each section indicates the current version.</p>
+
+</body>
+</html>
